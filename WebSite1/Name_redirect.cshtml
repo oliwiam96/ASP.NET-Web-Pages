@@ -1,0 +1,8 @@
+﻿@{
+    Response.BufferOutput = true;
+    var rules = (List<string>) Session["rules"];
+    rules.Add(Request.Form["rule"]);
+    Session["rules"] = rules;
+    Response.Redirect("Rules.cshtml");
+
+}

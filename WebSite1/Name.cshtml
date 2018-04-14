@@ -1,0 +1,40 @@
+﻿@{  var name = "Robert Paulson";
+    if (!Request["name"].IsEmpty())
+    {
+        name = Request["name"];
+
+
+    }
+    var method = "Metoda: ";
+    if (IsPost) {
+        method += Request.Form["name"] + " " + "POST";
+    }
+    if(Request.HttpMethod == "GET") {
+
+        method += Request.QueryString["name"] + " " + "GET";
+    }
+    var all = Request.Form["name"] + " i " + Request.QueryString["name"];
+
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <ul>
+        @for (int i = 0; i < 10; i++)
+        {
+            <li>His name is @name</li>
+        }
+    </ul>
+    <p>
+        @method
+        <br/>
+        @all
+    </p>
+</body>
+</html>
+
